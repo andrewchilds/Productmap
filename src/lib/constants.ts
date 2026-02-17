@@ -1,0 +1,7 @@
+export const CARD_PROXIMITY_THRESHOLD = 20;
+
+export const NEW_CARD_WIDTH = 260;
+export const NEW_CARD_HEIGHT = 160;
+
+export const EMBEDDED_CANVAS_MIN_WIDTH = 200;
+export const EMBEDDED_CANVAS_MIN_HEIGHT = 200;
