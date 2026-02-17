@@ -12,33 +12,39 @@ A visual product planning and mapping tool, for humans and agents.
 - The Terminal tab in the Task shelf automatically prompts Claude with context fom the task along with basic instructions for how to use Productmap.
 - All data is stored locally as text files in the `your-project/productmap` directory, in a human-readable and agent-readable format.
 
-## Data Structure (on disk)
+## Data Structure
 
 ```
 ~/.productmap/
 └── settings.json        # { projects: [{ name, path }] }
 └── tasks/
-    └── <task-id>.json   # Task session state
+    └── {task-id}.json   # Task session state
 
-<project-path>/
+{project-path}/
 └── productmap/
     ├── settings.json    # (optional, future use)
     └── tasks/
-        └── <task-id>/
+        └── {task-id}/
             ├── meta.json    # TaskMeta
             ├── README.md    # Plan document
             └── tasks/       # Subtasks (recursive)
-                └── <subtask-id>/
+                └── {subtask-id}/
                     ├── meta.json
                     ├── README.md
                     └── tasks/
 ```
 
+## Tech Stack
+
+- SvelteKit
+- Electron
+- TypeScript
+
 ## Getting Started
 
-Use the pre-built package [here].
+Use the latest pre-built binary release [here](https://github.com/andrewchilds/Productmap/releases).
 
-Start from source:
+Or, run from source:
 
 ```bash
 git clone git@github.com:andrewchilds/Productmap.git
@@ -47,19 +53,13 @@ npm install
 npm run dev:electron
 ```
 
-Hot reloading:
+With hot reloading:
 
 ```bash
 npm install
 npm run dev # terminal 1
 npm run dev:electron:hot # terminal 2
 ```
-
-## Tech Stack
-
-- SvelteKit
-- Electron
-- TypeScript
 
 ## License
 
