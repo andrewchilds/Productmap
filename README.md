@@ -6,11 +6,11 @@ A visual product planning and mapping tool, for humans and agents.
 
 ## Features
 
+- Zero telemetry.
 - Tasks are displayed as draggable, resizable cards on a recursive canvas.
-- Tasks can contain subtasks, plan documents, subtasks, open/resolved questions, and its own dedicated Claude Code process.
-- Each task has a Terminal panel, which prompts Claude with context fom the task, along with basic instructions for how to use Productmap.
+- Tasks can have subtasks, plan documents, open & resolved questions, and its own dedicated Claude Code process.
+- The Terminal tab in the Task shelf automatically prompts Claude with context fom the task along with basic instructions for how to use Productmap.
 - All data is stored locally as text files in the `your-project/productmap` directory, in a human-readable and agent-readable format.
-- No telemetry.
 
 ## Data Structure (on disk)
 
@@ -36,9 +36,13 @@ A visual product planning and mapping tool, for humans and agents.
 
 ## Getting Started
 
-Simple start:
+Use the pre-built package [here].
+
+Start from source:
 
 ```bash
+git clone git@github.com:andrewchilds/Productmap.git
+cd Productmap
 npm install
 npm run dev:electron
 ```

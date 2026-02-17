@@ -16,7 +16,10 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint .",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run"
+		"test": "npm run test:unit -- --run",
+		"package": "electron-forge package",
+		"make": "electron-forge make",
+		"release": "node scripts/release.js"
 	},
 	"dependencies": {
 		"@xterm/addon-fit": "^0.10.0",
@@ -29,6 +32,12 @@
 		"node-pty": "^1.0.0"
 	},
 	"devDependencies": {
+		"@electron-forge/cli": "^7.11.1",
+		"@electron-forge/maker-deb": "^7.11.1",
+		"@electron-forge/maker-rpm": "^7.11.1",
+		"@electron-forge/maker-squirrel": "^7.11.1",
+		"@electron-forge/maker-zip": "^7.11.1",
+		"@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
 		"@electron/rebuild": "^3.6.0",
 		"@eslint/compat": "^2.0.2",
 		"@eslint/js": "^9.39.2",
