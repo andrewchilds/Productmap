@@ -6,6 +6,19 @@ module.exports = {
 		name: "Productmap",
 		executableName: "productmap",
 		icon: "./static/favicon",
+		appBundleId: "com.productmap.app",
+		osxSign: {
+			identity: process.env.APPLE_IDENTITY,
+			optionsForFile: () => ({
+				entitlements: "./entitlements.plist",
+				hardenedRuntime: true
+			})
+		},
+		osxNotarize: process.env.APPLE_ID ? {
+			appleId: process.env.APPLE_ID,
+			appleIdPassword: process.env.APPLE_ID_PASSWORD,
+			teamId: process.env.APPLE_TEAM_ID
+		} : undefined,
 		ignore: [
 			/^\/src/,
 			/^\/docs/,
