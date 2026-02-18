@@ -380,14 +380,12 @@
 						/>
 						<span class="progress-value">{task.progress ?? 0}%</span>
 					</div>
-				</div>
 
-				{#if task.completedAt}
-					<div class="form-group">
+					{#if task.completedAt}
 						<label>Completed At</label>
 						<span class="completed-date">{new Date(task.completedAt).toLocaleString()}</span>
-					</div>
-				{/if}
+					{/if}
+				</div>
 
 				<div class="form-group">
 					<label for="task-description">Description</label>
