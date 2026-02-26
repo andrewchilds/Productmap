@@ -6,8 +6,8 @@
 	"main": "electron/main.js",
 	"scripts": {
 		"dev": "vite dev",
-		"dev:electron": "npm run build && electron .",
-		"dev:electron:hot": "DEV_SERVER_URL=http://localhost:5199 electron .",
+		"app": "npm run build && electron .",
+		"app:hot": "DEV_SERVER_URL=http://localhost:5199 electron .",
 		"build": "vite build",
 		"preview": "vite preview",
 		"postinstall": "electron-rebuild -f -w node-pty",

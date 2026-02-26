@@ -14,7 +14,7 @@ Productmap is a local-first product planning app. Tasks are displayed as draggab
 ## Commands
 
 - `npm run dev` - Start dev server
-- `npm run dev:electron` - Build and run Electron app
+- `npm run app` - Build and run Electron app
 - `npm run build` - Production build
 - `npm run test` - Run tests
 - `npm run lint` - Run ESLint

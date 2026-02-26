@@ -50,7 +50,7 @@ Or, run from source:
 git clone git@github.com:andrewchilds/Productmap.git
 cd Productmap
 npm install
-npm run dev:electron
+npm run app
 ```
 
 With hot reloading:
@@ -58,7 +58,7 @@ With hot reloading:
 ```bash
 npm install
 npm run dev # terminal 1
-npm run dev:electron:hot # terminal 2
+npm run app:hot # terminal 2
 ```
 
 ## License

@@ -34,6 +34,7 @@
 
 	const MIN_WIDTH = 200;
 	const MIN_HEIGHT = 40;
+	const DENSE_UI_ZOOM_THRESHOLD = 0.45;
 
 	let isDragging = false;
 	let hasMoved = false;
@@ -56,8 +57,8 @@
 	$: isLargeEnough = absoluteWidth >= EMBEDDED_CANVAS_MIN_WIDTH && absoluteHeight >= EMBEDDED_CANVAS_MIN_HEIGHT;
 	$: shouldShowEmbeddedCanvas = isLargeEnough;
 	$: isTerminalRunning = hasRunningTerminal(task.id);
-	$: showCardIcons = zoomLevel >= 0.6;
-	$: isCompact = zoomLevel < 0.6;
+	$: showCardIcons = zoomLevel >= DENSE_UI_ZOOM_THRESHOLD;
+	$: isCompact = zoomLevel < DENSE_UI_ZOOM_THRESHOLD;
 
 	// Track previous state to detect when embedded canvas becomes visible
 	let wasShowingEmbeddedCanvas = false;

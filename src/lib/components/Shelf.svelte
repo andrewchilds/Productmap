@@ -29,6 +29,7 @@
 	import "highlight.js/styles/github-dark.css";
 	import Actions from "./Actions.svelte";
 	import Textarea from "./Textarea.svelte";
+	import Badge from "./Badge.svelte";
 
 	const marked = new Marked(
 		markedHighlight({
@@ -414,24 +415,30 @@
 									<button class="btn-icon delete-btn" on:click={() => deleteQuestion(index)}>
 										<Trash2 size={14} />
 									</button>
-									<Textarea
-										class="question-input"
-										bind:value={question.question}
-										on:input={handlePreview}
-										on:blur={() => updateQuestion(index, "question", question.question)}
-										placeholder="Question..."
-										rows={1}
-										autoResize
-									/>
-									<Textarea
-										class="answer-input"
-										bind:value={question.answer}
-										on:input={handlePreview}
-										on:blur={() => updateQuestion(index, "answer", question.answer)}
-										placeholder="Answer..."
-										rows={1}
-										autoResize
-									/>
+									<div class="question-row">
+										<Badge hue="blue">Q</Badge>
+										<Textarea
+											class="question-input"
+											bind:value={question.question}
+											on:input={handlePreview}
+											on:blur={() => updateQuestion(index, "question", question.question)}
+											placeholder="Question..."
+											rows={1}
+											autoResize
+										/>
+									</div>
+									<div class="answer-row">
+										<Badge hue="purple">A</Badge>
+										<Textarea
+											class="answer-input"
+											bind:value={question.answer}
+											on:input={handlePreview}
+											on:blur={() => updateQuestion(index, "answer", question.answer)}
+											placeholder="Answer..."
+											rows={1}
+											autoResize
+										/>
+									</div>
 								</div>
 							{/each}
 						</div>
@@ -1014,11 +1021,18 @@
 	.question-item {
 		display: grid;
 		grid-template-columns: auto 1fr auto;
-		gap: 0 var(--spacing-xs);
+		gap: var(--spacing-xs);
 		padding: var(--spacing-sm);
 		background: var(--question-open-bg);
 		border-left: 3px solid var(--question-open-border);
 		border-radius: var(--radius-sm);
+	}
+
+	.question-row,
+	.answer-row {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--spacing-xs);
 	}
 
 	.question-item.resolved {
@@ -1052,9 +1066,18 @@
 		color: var(--state-blocked);
 	}
 
-	.question-item :global(.question-input) {
+	.question-row {
 		grid-column: 2;
 		grid-row: 1;
+	}
+
+	.answer-row {
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.question-item :global(.question-input) {
+		flex: 1;
 		padding: var(--spacing-xs);
 		font-size: var(--font-size-sm);
 		font-weight: var(--font-weight-medium);
@@ -1065,8 +1088,7 @@
 	}
 
 	.question-item :global(.answer-input) {
-		grid-column: 2;
-		grid-row: 2;
+		flex: 1;
 		padding: var(--spacing-xs);
 		font-size: var(--font-size-sm);
 		background: transparent;
